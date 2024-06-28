@@ -13,8 +13,8 @@ async function fetchUrl(url){
         data = data[0];
         console.log(data);
         function getMeaning(){
-            for(let i = 0 ; i<10 ; i++){
-                for(let j = 0 ; i < 10 ; j++){
+            for(let i = 0 ; i<data.meanings.length  ; i++){
+                for(let j = 0 ; i < data.meanings.length  ; j++){
                     if(data.meanings[i].definitions[j].definition){
                         return data.meanings[i].definitions[j].definition;
                     }
@@ -23,17 +23,15 @@ async function fetchUrl(url){
             return 'Not found';
         }
         function getExample(){
-            for(let i = 0 ; i<10 ; i++){
-                for(let j = 0 ; i < 10 ; j++){
-                    if(data.meanings[i].definitions[j].example){
-                        return data.meanings[i].definitions[j].example;
-                    }
+            for(let i = 0 ; i<data.meanings.length ; i++){
+                if(data.meanings[i].definitions[0].example!=undefined){
+                    return data.meanings[i].definitions[0].example;
                 }
             }
             return 'Not found';
         }
         mean.textContent = `Meaning : ${getMeaning()}`;
-        example.textContent = `Example : ${data.meanings[0].definitions[0].example}`;
+        example.textContent = `Example : ${getExample()}`;
         function findAudio(){
             let i = 0;
             while(i< data.phonetics.length){

@@ -46,7 +46,6 @@ async function fetchUrl(url){
         mean.textContent = 'Could not find this word';
         example.textContent = '';
         aud.style.display = 'none';
-        console.error('error',e);
     }
 }
 function searchWord(){

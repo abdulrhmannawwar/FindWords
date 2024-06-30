@@ -34,7 +34,7 @@ async function fetchUrl(url){
         example.textContent = `Example : ${getExample()}`;
         function findAudio(){
             for (let i = 0; i < data.phonetics.length ; i++) {
-                if( data.phonetics[i].audio){
+                if(data.phonetics[i].audio){
                     return data.phonetics[i].audio;
                 }
             }

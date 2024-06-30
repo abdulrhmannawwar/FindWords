@@ -24,7 +24,7 @@ async function fetchUrl(url){
         }
         function getExample(){
             for(let i = 0 ; i<data.meanings.length ; i++){
-                if(data.meanings[i].definitions[0].example!=undefined){
+                if(data.meanings[i].definitions[0].example){
                     return data.meanings[i].definitions[0].example;
                 }
             }

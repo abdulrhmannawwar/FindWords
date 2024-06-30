@@ -11,7 +11,6 @@ async function fetchUrl(url){
         const promise = await fetch(url);
         let data = await promise.json();
         data = data[0];
-        console.log(data.meanings);
         function getMeaning(){
             for(let i = 0 ; i<data.meanings.length  ; i++){
                 for(let j = 0 ; i < data.meanings.length  ; j++){
@@ -52,7 +51,6 @@ async function fetchUrl(url){
 }
 function searchWord(){
     let word = txtInput.value;
-    console.log(word);
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     fetchUrl(url);
 }

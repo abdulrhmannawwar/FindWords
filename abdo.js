@@ -11,7 +11,7 @@ async function fetchUrl(url){
         const promise = await fetch(url);
         let data = await promise.json();
         data = data[0];
-        console.log(data);
+        console.log(data.meanings);
         function getMeaning(){
             for(let i = 0 ; i<data.meanings.length  ; i++){
                 for(let j = 0 ; i < data.meanings.length  ; j++){
@@ -33,13 +33,11 @@ async function fetchUrl(url){
         mean.textContent = `Meaning : ${getMeaning()}`;
         example.textContent = `Example : ${getExample()}`;
         function findAudio(){
-            let i = 0;
-            while(i< data.phonetics.length){
-                if( data.phonetics[i].audio != ''){
+            for (let i = 0; i < data.phonetics.length ; i++) {
+                if( data.phonetics[i].audio){
                     return data.phonetics[i].audio;
                 }
-                    i++
-            };
+            }
             return '';
     }
         aud.src = findAudio();

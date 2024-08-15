@@ -59,6 +59,8 @@ function searchWord(){
 btn.addEventListener('click',()=>{
     if(!txtInput.value){
         mean.textContent = 'You must enter a word first';
+        example.textContent = '';
+        aud.style.display = 'none';
         return;
     }
     searchWord();

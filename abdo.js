@@ -58,6 +58,7 @@ function searchWord(){
 }
 btn.addEventListener('click',()=>{
     if(!txtInput.value){
+        console.log(txtInput.value);
         mean.textContent = 'You must enter a word first';
         example.textContent = '';
         aud.style.display = 'none';

@@ -11,6 +11,7 @@ async function fetchUrl(url){
         const promise = await fetch(url);
         let data = await promise.json();
         data = data[0];
+        console.log(data.meanings);
         function getMeaning(){
             for(let i = 0 ; i<data.meanings.length  ; i++){
                 for(let j = 0 ; i < data.meanings.length  ; j++){
@@ -46,11 +47,19 @@ async function fetchUrl(url){
         mean.textContent = 'Could not find this word';
         example.textContent = '';
         aud.style.display = 'none';
+        console.error('error',e);
     }
 }
 function searchWord(){
     let word = txtInput.value;
+    console.log(word);
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     fetchUrl(url);
 }
-btn.addEventListener('click',searchWord);
+btn.addEventListener('click',()=>{
+    if(!txtInput.value){
+        mean.textContent = 'You must enter a word first';
+        return;
+    }
+    searchWord();
+});
